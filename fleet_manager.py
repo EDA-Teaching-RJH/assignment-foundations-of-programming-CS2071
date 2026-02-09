@@ -8,7 +8,7 @@ def main():
 def fleet_manager():
     while True:
         print("\n^ - Display Menu     -","\n1 - View Crew Files  -", "\n2 - Add Crew File    -", "\n3 - Update Crew File -", "\n4 - Remove Crew File -", "\n5 - Search Crew File -", "\n6 - Leave            -")
-        dis = input("Choose: ")
+        dis = int(input("Choose: "))
 
         # View Crew
         if dis == 1:
@@ -42,15 +42,9 @@ def fleet_manager():
         #if dis == 5
 
         # Leave
-        #if dis == 6
-
-        # If someone uses letters im gonna use a hammer on them
-        if not dis.isnumeric():
-            print("\nUse A Number, Not A Letter")
-
-        # Error Gate
-        else:
-            print("Input A Valid Number")
+        if dis == 6:
+            print("Killing Program...")
+            break
 
     # Add Crew
 
