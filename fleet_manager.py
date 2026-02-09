@@ -17,19 +17,32 @@ def fleet_manager():
                 a = a +1
         
         # Add Crew
-        if dis == 2
-        
+        if dis == 2:
+            i = str(input("Enter New Crew Name: "))
+            name.append(i)
+            print("Crew Name:", i, "\n")
+
+            o = str(input("Enter Crew Rank: "))
+            rank.append(o)
+            print("Rank:", o, "\n")
+
+            u = str(input("Enter Crew Division: "))
+            division.append(u)
+            print("Division:", u, "\n")
+
+            print(i,"-",o,"-",u)
+
         # Update Crew
-        if dis == 3
+        #if dis == 3
 
         # Remove Crew
-        if dis == 4
+        #if dis == 4
 
         # Search Crew
-        if dis == 5
+        #if dis == 5
 
         # Leave
-        if dis == 6
+        #if dis == 6
 
         # Error Gate
         else:
