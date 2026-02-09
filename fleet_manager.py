@@ -1,7 +1,6 @@
 name = ["A", "B", "C"]
 rank = ["a", "b", "c"]
 division = ["1", "2", "3"]
-dis = 0
 
 def main():
     fleet_manager()
@@ -13,8 +12,8 @@ def fleet_manager():
     if dis == 0:
         print("it broke")
     if dis == 1:
-        for a in range(lens(name)):
-            print(name, " - ", rank, " - ", division, " - ", name.index())
+        for a in range(len(name)):
+            print(name[a], " - ", rank[a], " - ", division[a], " - ", a+1)
             a = a +1
         print("if works")
 
