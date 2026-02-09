@@ -6,18 +6,34 @@ def main():
     fleet_manager()
 
 def fleet_manager():
-    print("\n^ - Display Menu     -","\n1 - View Crew Files  -", "\n2 - Add Crew File    -", "\n3 - Update Crew File -", "\n4 - Remove Crew File -", "\n5 - Search Crew File -")
-    dis = int(input("Choose: "))
+    while True:
+        print("\n^ - Display Menu     -","\n1 - View Crew Files  -", "\n2 - Add Crew File    -", "\n3 - Update Crew File -", "\n4 - Remove Crew File -", "\n5 - Search Crew File -")
+        dis = int(input("Choose: "))
 
-    if dis == 0:
-        print("it broke")
-    if dis == 1:
-        for a in range(len(name)):
-            print(name[a], " - ", rank[a], " - ", division[a], " - ", a+1)
-            a = a +1
-        print("if works")
+        # View Crew
+        if dis == 1:
+            for a in range(len(name)):
+                print(name[a], " - ", rank[a], " - ", division[a], " - ", a+1)
+                a = a +1
+        
+        # Add Crew
+        if dis == 2
+        
+        # Update Crew
+        if dis == 3
 
-    # View Crew
+        # Remove Crew
+        if dis == 4
+
+        # Search Crew
+        if dis == 5
+
+        # Leave
+        if dis == 6
+
+        # Error Gate
+        else:
+            print("Input A Valid Number")
 
     # Add Crew
 
