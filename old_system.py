@@ -27,7 +27,7 @@ def run_system_monolith():
         opt = input("Select option: ")
         
         if opt == "1":  
-            print("Current Crew List:")
+            print("\n","Current Crew List:")
             
             for i in range(len(n)):
                 print(n[i] + " - " + r[i]) 
@@ -73,9 +73,9 @@ def run_system_monolith():
         
         x = 10
         if x > 5:
-            print("System Check OK")
+            print("\n","System Check OK")
         else:
-            print("System Failure")
+            print("\n","System Failure")
             
        
         if len(n) > 0:
