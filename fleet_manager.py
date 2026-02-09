@@ -33,7 +33,12 @@ def fleet_manager():
             print("|","New Crew Member Established!","\n|",i,"-",o,"-",u,"\n*----------------")
 
         # Update Crew
-        #if dis == 3
+        if dis == 3:
+            ask = input("Index (I) or Names (N) : ")
+            if ask == "I":
+                print("0 to", len(name))
+            if ask == "N":
+                print(name)
 
         # Remove Crew
         #if dis == 4
@@ -45,14 +50,5 @@ def fleet_manager():
         if dis == 6:
             print("Killing Program...")
             break
-
-    # Add Crew
-
-    # Update Crew
-
-    # Remove Crew
-
-    # Search Crew
-
 
 main()
