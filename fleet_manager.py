@@ -7,8 +7,8 @@ def main():
 
 def fleet_manager():
     while True:
-        print("\n^ - Display Menu     -","\n1 - View Crew Files  -", "\n2 - Add Crew File    -", "\n3 - Update Crew File -", "\n4 - Remove Crew File -", "\n5 - Search Crew File -")
-        dis = int(input("Choose: "))
+        print("\n^ - Display Menu     -","\n1 - View Crew Files  -", "\n2 - Add Crew File    -", "\n3 - Update Crew File -", "\n4 - Remove Crew File -", "\n5 - Search Crew File -", "\n6 - Leave            -")
+        dis = input("Choose: ")
 
         # View Crew
         if dis == 1:
@@ -18,19 +18,19 @@ def fleet_manager():
         
         # Add Crew
         if dis == 2:
-            i = str(input("Enter New Crew Name: "))
+            i = str(input("\nEnter New Crew Name: "))
             name.append(i)
-            print("Crew Name:", i, "\n")
+            print("| Crew Name:", i, "\n|----------------")
 
-            o = str(input("Enter Crew Rank: "))
+            o = str(input("| Enter Crew Rank: "))
             rank.append(o)
-            print("Rank:", o, "\n")
+            print("| Rank:", o, "\n|----------------")
 
-            u = str(input("Enter Crew Division: "))
+            u = str(input("| Enter Crew Division: "))
             division.append(u)
-            print("Division:", u, "\n")
+            print("| Division:", u, "\n|----------------")
 
-            print(i,"-",o,"-",u)
+            print("|","New Crew Member Established!","\n|",i,"-",o,"-",u,"\n*----------------")
 
         # Update Crew
         #if dis == 3
@@ -43,6 +43,10 @@ def fleet_manager():
 
         # Leave
         #if dis == 6
+
+        # If someone uses letters im gonna use a hammer on them
+        if not dis.isnumeric():
+            print("\nUse A Number, Not A Letter")
 
         # Error Gate
         else:
