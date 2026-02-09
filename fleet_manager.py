@@ -4,14 +4,12 @@ division = ["1", "2", "3"]
 dis = 0
 
 def main():
-    display_menu()
-    crew_cut()
+    fleet_manager()
 
-def display_menu():
+def fleet_manager():
     print("\n^ - Display Menu     -","\n1 - View Crew Files  -", "\n2 - Add Crew File    -", "\n3 - Update Crew File -", "\n4 - Remove Crew File -", "\n5 - Search Crew File -")
     dis = int(input("Choose: "))
 
-def crew_cut():
     if dis == 0:
         print("it broke")
     if dis == 1:
