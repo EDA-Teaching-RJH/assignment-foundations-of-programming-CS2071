@@ -7,12 +7,10 @@ def run_system_monolith():
     print("...")
     print("WELCOME TO FLEET COMMAND")
     
-    
     loading = 0
     while loading < 5:
         print("Loading module " + str(loading))
         loading = loading +1
-        
     
     while True:
         print("\n--- MENU ---")
@@ -54,11 +52,7 @@ def run_system_monolith():
             
         elif opt == "4":
             print("Analyzing...")
-            count = 0
-            
-            for rank in r:
-                if rank == "Captain" or "Commander": 
-                    count = count + 1
+            count = r.count("Captain") + r.count("Commander")                    
             print("High ranking officers: ", count)
             
         elif opt == "5":
