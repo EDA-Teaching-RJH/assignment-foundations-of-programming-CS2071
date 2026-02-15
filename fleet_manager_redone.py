@@ -1,43 +1,51 @@
-# Database
-name = ["Spock", "William", "Phlox", "Tom", "Kathryn", "Reginald"]
-rank = ["Commander", "First Officer", "Civilian", "Lieutenant", "Admiral", "Lieutenant"]
-division = ["Science", "Command", "Science", "Command", "Command", "Operations"]
-payroll = ["1500","800","200","650","2500","650"]
-# ID's can just use the .index function
-
 def main():
     print("- Made by Cameron Sands * CS2071@kent.ac.uk")
     while True:
-        fleet_manager()
+        display_menu()
+        dis = int(input("^ - Choose: "))
+        if dis == 1:
+            init_database()
 
 def init_database():
-    print("a")
+    # Database
+    name = ["Spock", "William", "Phlox", "Tom", "Kathryn", "Reginald"]
+    rank = ["Commander", "First Officer", "Civilian", "Lieutenant", "Admiral", "Lieutenant"]
+    division = ["Science", "Command", "Science", "Command", "Command", "Operations"]
+    payroll = ["1500","800","200","650","2500","650"]
+    # ID's can just use the .index function
+
+    print("*----------------")
+    print("\n| Name", " - ", "Rank", " - ", "Division", " - ", "ID")
+    for a in range(len(name)):
+        print("|", name[a], " - ", rank[a], " - ", division[a], " - ", a+1)
+        a = a +1
+    print("*----------------")
 
 def display_menu():
+    print("\n^ - Display Menu     -","\n1 - View Crew Files  -", "\n2 - Add Crew File    -", "\n3 - Update Crew File -", "\n4 - Remove Crew File -", "\n5 - Search Crew File -", "\n6 - Leave            -")
+
+def add_member(name, rank, division):
     ...
 
-def add_member(names, rank, division):
-    ...
-
-def remove_member(names, ranks, divs, ids):
+def remove_member(name, rank, division, ids):
     
 
-def update_rank(names, ranks, ids):
+def update_rank(name, rank, ids):
     
 
-def display_roster(names, ranks, divs, ids):
+def display_roster(name, rank, division, ids):
     
 
-def search_crew(names, ranks, divs, ids):
+def search_crew(name, rank, division, ids):
     
 
-def filter_by_division(names, divs):
+def filter_by_division(name, division):
     
 
-def calculate_payroll(ranks):
+def calculate_payroll(rank):
     .
 
-def count_officers(ranks)
+def count_officers(rank)
 
 def fleet_manager():
     while True:
