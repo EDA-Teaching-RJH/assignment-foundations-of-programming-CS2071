@@ -10,7 +10,7 @@ def fleet_manager():
 
         print("\n^ - Display Menu     -","\n1 - View Crew Files  -", "\n2 - Add Crew File    -", "\n3 - Update Crew File -", "\n4 - Remove Crew File -", "\n5 - Search Crew File -", "\n6 - Leave            -")
         try:
-            dis = int(input("Choose: "))
+            dis = int(input("^ - Choose: "))
 
             # View Crew
             if dis == 1:
@@ -20,7 +20,7 @@ def fleet_manager():
         
             # Add Crew
             elif dis == 2:
-                i = str(input("\nEnter New Crew Name: "))
+                i = str(input("\n* Enter New Crew Name: "))
                 name.append(i)
                 print("| Crew Name:", i, "\n|----------------")
 
@@ -36,25 +36,28 @@ def fleet_manager():
 
             # Update Crew
             elif dis == 3:
-                Uask = input("Index (I) or Names (N)? : ")
+                Uask = input("* Index (I) or Names (N)? : ")
                 if Uask == "I":
-                    print("0 to", len(name))
+                    print("| 0 to", len(name))
                 if Uask == "N":
-                    print(name)
+                    print("|", name)
 
             # Remove Crew
             elif dis == 4:
-                Rask = input("Index (I) or Names (N)? : ")
+                Rask = input("\n* Index (I) or Names (N)? : ")
                 if Rask == "I":
-                    print("1 to", len(name)+1,"\n")
-                    IDRemove = input("Which ID do you want to remove? : ")
-                    name.pop(IDRemove-1)
-                    print("Name has been removed...")
-                    rank.pop(IDRemove)
-                    print("Rank has been removed...")
-                    division.pop(IDRemove)
-                    print("Divison has been removed...")
-                    print("Crew file has been cleared.")
+                    print("| IDs from 1 to", len(name))
+                    try:
+                        IDRemove = int(input("| Which ID do you want to remove? : ")) -1
+                        name.pop(int(IDRemove))
+                        print("| Name has been removed...")
+                        rank.pop(int(IDRemove))
+                        print("| Rank has been removed...")
+                        division.pop(int(IDRemove))
+                        print("| Divison has been removed...")
+                        print("*----------------", "\n| Crew file has been cleared.")
+                    except ValueError:
+                        print("| Invalid input...", "\n| Try again...")
 
 
                 if Rask == "N":
@@ -70,9 +73,9 @@ def fleet_manager():
                 break
 
             elif dis > 6:
-                print("Input outside of range...", "\nTry again...")
+                print("| Input outside of range...", "\n| Try again...")
         except ValueError:
-            print("Invalid")
+            print("| Invalid input...", "\n| Use numbers...")
 
 
 
