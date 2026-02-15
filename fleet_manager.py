@@ -1,5 +1,5 @@
 name = ["Spock", "William", "Phlox", "Tom", "Kathryn", "Reginald"]
-rank = ["Commander", "FIrst Officer", "Civilian", "Lieutenant", "Admiral", "Lieutenant"]
+rank = ["Commander", "First Officer", "Civilian", "Lieutenant", "Admiral", "Lieutenant"]
 division = ["Science", "Command", "Science", "Command", "Command", "Operations"]
 
 def main():
@@ -186,7 +186,16 @@ def fleet_manager():
 
             # Search Crew
             elif dis == 5:
-                Sask = input("Index (I) or Names (N)? : ")
+                Sask = input("\n* Index (I) or Names (N)? : ")
+                if Sask == "i" or Sask == "I":
+                    print("| IDs from 1 to", len(name))
+                    try:
+                        IDSearch = int(input("| Which ID do you want to look for? : ")) -1
+                        print("|", name[IDSearch], rank[IDSearch], division[IDSearch], IDSearch+1, "\n*----------------")
+                    except ValueError:
+                        print("| Invalid input...", "\n| Try again...")
+                if Sask == "N" or Sask == "n":
+                    print("|", name)
 
             # Leave
             elif dis == 6:
