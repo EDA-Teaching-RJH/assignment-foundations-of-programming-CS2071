@@ -1,6 +1,6 @@
-name = ["A", "B", "C"]
-rank = ["a", "b", "c"]
-division = ["1", "2", "3"]
+name = ["Spock", "William", "Phlox", "Tom", "Kathryn", "Reginald"]
+rank = ["Commander", "FIrst Officer", "Civilian", "Lieutenant", "Admiral", "Lieutenant"]
+division = ["Science", "Command", "Science", "Command", "Command", "Operations"]
 
 def main():
     fleet_manager()
