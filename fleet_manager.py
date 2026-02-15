@@ -44,7 +44,8 @@ def fleet_manager():
         elif dis == 4:
             Rask = input("Index (I) or Names (N)? : ")
             if Rask == "I":
-                print("0 to", len(name))
+                print("0 to", len(name),"\n")
+                #IDRemove
 
             if Rask == "N":
                 print(name)
