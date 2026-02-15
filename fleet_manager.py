@@ -9,7 +9,7 @@ def fleet_manager():
     while True:
 
         print("\n^ - Display Menu     -","\n1 - View Crew Files  -", "\n2 - Add Crew File    -", "\n3 - Update Crew File -", "\n4 - Remove Crew File -", "\n5 - Search Crew File -", "\n6 - Leave            -")
-        # Funny
+        # Funny :)
         try:
             dis = int(input("^ - Choose: "))
 
@@ -18,7 +18,7 @@ def fleet_manager():
                 print("*----------------")
                 print("\n| Name", " - ", "Rank", " - ", "Division", " - ", "ID")
                 for a in range(len(name)):
-                    print("| ", name[a], " - ", rank[a], " - ", division[a], " - ", a+1)
+                    print("|", name[a], " - ", rank[a], " - ", division[a], " - ", a+1)
                     a = a +1
                 print("*----------------")
         
@@ -42,7 +42,22 @@ def fleet_manager():
             elif dis == 3:
                 Uask = input("* Index (I) or Names (N)? : ")
                 if Uask == "I":
-                    print("| 0 to", len(name))
+                    print("| 1 to", len(name))
+                    IDUpdate = int(input("| Which ID do you want to Update? : ")) -1
+                    print("*----------------")
+                    while True:
+                        try:
+                            askUpdate = str(input("| Update Name (N), Rank (R), or Division (D)? : "))
+                            if askUpdate == "N" or askUpdate == "n":
+                                print("| Current name is: ", name.index(IDUpdate))
+                                #aba
+                            elif askUpdate == "R" or askUpdate == "r":
+                                print("| Current name is: ", rank.index(IDUpdate))
+                            elif askUpdate == "D" or askUpdate == "d":
+                                print("| Current name is: ", division.index(IDUpdate))
+                            
+                        except ValueError:
+                            print("| Invalid input...", "\n| Try again...")
                 if Uask == "N":
                     print("|", name)
 
