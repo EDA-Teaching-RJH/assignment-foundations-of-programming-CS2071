@@ -17,7 +17,7 @@ def fleet_manager():
                 a = a +1
         
         # Add Crew
-        if dis == 2:
+        elif dis == 2:
             i = str(input("\nEnter New Crew Name: "))
             name.append(i)
             print("| Crew Name:", i, "\n|----------------")
@@ -33,21 +33,28 @@ def fleet_manager():
             print("|","New Crew Member Established!","\n|",i,"-",o,"-",u,"\n*----------------")
 
         # Update Crew
-        if dis == 3:
-            ask = input("Index (I) or Names (N) : ")
-            if ask == "I":
+        elif dis == 3:
+            Uask = input("Index (I) or Names (N)? : ")
+            if Uask == "I":
                 print("0 to", len(name))
-            if ask == "N":
+            if Uask == "N":
                 print(name)
 
         # Remove Crew
-        #if dis == 4
+        elif dis == 4:
+            Rask = input("Index (I) or Names (N)? : ")
+            if Rask == "I":
+                print("0 to", len(name))
+
+            if Rask == "N":
+                print(name)
 
         # Search Crew
-        #if dis == 5
+        elif dis == 5:
+            Sask = input("Index (I) or Names (N)? : ")
 
         # Leave
-        if dis == 6:
+        elif dis == 6:
             print("Killing Program...")
             break
 
