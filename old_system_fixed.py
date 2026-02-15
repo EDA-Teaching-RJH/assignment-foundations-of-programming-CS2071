@@ -2,18 +2,15 @@ n = ["Picard", "Riker", "Data", "Worf"]
 r = ["Captain", "Commander", "Lt. Commander", "Lieutenant"]
 d = ["Command", "Command", "Operations", "Security"]
 
-active = True
-
 def run_system_monolith():
     print("BOOTING SYSTEM...")
     print("...")
     print("WELCOME TO FLEET COMMAND")
     
-    
     loading = 0
     while loading < 5:
         print("Loading module " + str(loading))
-        
+        loading = loading +1
     
     while True:
         print("\n--- MENU ---")
@@ -25,20 +22,24 @@ def run_system_monolith():
         
         opt = input("Select option: ")
         
-        if opt = "1":  
-            print("Current Crew List:")
+        if opt == "1":  
+            print("\nCurrent Crew List:")
             
-            for i in range(10):
+            for i in range(len(n)):
                 print(n[i] + " - " + r[i]) 
                 
         elif opt == "2":
             new_name = input("Name: ")
-            new_rank = input("Rank: ")
-            new_div = input("Division: ")
-            
-           
             n.append(new_name)
             print("Crew member added.")
+
+            new_rank = input("Rank: ")
+            r.append(new_rank)
+            print("Crew rank added.")
+
+            new_div = input("Division: ")
+            d.append(new_div)
+            print("Crew division added.")
             
         elif opt == "3":
             rem = input("Name to remove: ")
@@ -51,12 +52,8 @@ def run_system_monolith():
             
         elif opt == "4":
             print("Analyzing...")
-            count = 0
-            
-            for rank in r:
-                if rank == "Captain" or "Commander": 
-                    count = count + 1
-            print("High ranking officers: " + count) 
+            count = r.count("Captain") + r.count("Commander")                    
+            print("High ranking officers: ", count)
             
         elif opt == "5":
             print("Shutting down.")
@@ -68,9 +65,9 @@ def run_system_monolith():
         
         x = 10
         if x > 5:
-            print("System Check OK")
+            print("\nSystem Check OK")
         else:
-            print("System Failure")
+            print("\nSystem Failure")
             
        
         if len(n) > 0:
@@ -88,4 +85,4 @@ def run_system_monolith():
             
         print("End of cycle.")
 
-run_system_monolith
+run_system_monolith()
