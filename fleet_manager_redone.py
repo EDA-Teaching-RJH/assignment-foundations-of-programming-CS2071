@@ -2,18 +2,57 @@ def main():
     print("- Made by Cameron Sands * CS2071@kent.ac.uk")
     while True:
         display_menu()
-        dis = int(input("^ - Choose: "))
-        if dis == 1:
-            init_database()
+        try:
+            dis = int(input("^ - Choose: "))
+            if dis == 1:
+                display_roster(*init_database())
+
+            elif dis == 2:
+                add_member(*init_database())
+                
+
+            elif dis == 6:
+                    print("Killing Program...")
+                    break
+        
+        except ValueError:
+            print("| Invalid input...", "\n| Use numbers...")
 
 def init_database():
     # Database
     name = ["Spock", "William", "Phlox", "Tom", "Kathryn", "Reginald"]
     rank = ["Commander", "First Officer", "Civilian", "Lieutenant", "Admiral", "Lieutenant"]
     division = ["Science", "Command", "Science", "Command", "Command", "Operations"]
-    payroll = ["1500","800","200","650","2500","650"]
+    return name, rank, division
     # ID's can just use the .index function
 
+def display_menu():
+    print("\n^ - Display Menu     -","\n1 - View Crew Files  -", "\n2 - Add Crew File    -", "\n3 - Update Crew File -", "\n4 - Remove Crew File -", "\n5 - Search Crew File -", "\n6 - Leave            -")
+
+def add_member(name, rank, division):
+    i = str(input("\n* Enter New Crew Name: "))
+    name.append(i)
+    print("| Crew Name:", i, "\n|----------------")
+
+    o = str(input("| Enter Crew Rank: "))
+    rank.append(o)
+    print("| Rank:", o, "\n|----------------")
+
+    u = str(input("| Enter Crew Division: "))
+    division.append(u)
+    print("| Division:", u, "\n|----------------")
+
+    print("|","New Crew Member Established!","\n|",i,"-",o,"-",u,"\n*----------------")
+    return name, rank, division
+
+def remove_member(name, rank, division):
+    ...
+
+def update_rank(name, rank):
+    ...
+    
+
+def display_roster(name, rank, division):
     print("*----------------")
     print("\n| Name", " - ", "Rank", " - ", "Division", " - ", "ID")
     for a in range(len(name)):
@@ -21,29 +60,14 @@ def init_database():
         a = a +1
     print("*----------------")
 
-def display_menu():
-    print("\n^ - Display Menu     -","\n1 - View Crew Files  -", "\n2 - Add Crew File    -", "\n3 - Update Crew File -", "\n4 - Remove Crew File -", "\n5 - Search Crew File -", "\n6 - Leave            -")
-
-def add_member(name, rank, division):
-    ...
-
-def remove_member(name, rank, division, ids):
-    ...
-
-def update_rank(name, rank, ids):
-    ...
-    
-
-def display_roster(name, rank, division, ids):
-    ...
-
-def search_crew(name, rank, division, ids):
+def search_crew(name, rank, division):
     ...
 
 def filter_by_division(name, division):
     ...
 
 def calculate_payroll(rank):
+    payroll = ["1500","800","200","650","2500","650"]
     ...
 
 def count_officers(rank):
