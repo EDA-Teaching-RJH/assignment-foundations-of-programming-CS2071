@@ -1,15 +1,25 @@
 def main():
     print("- Made by Cameron Sands * CS2071@kent.ac.uk")
+    name, rank, division = init_database()
     while True:
-        display_menu()
         try:
+            display_menu()
+
             dis = int(input("^ - Choose: "))
             if dis == 1:
-                display_roster(*init_database())
+                display_roster(name,rank,division)
 
             elif dis == 2:
-                add_member(*init_database())
-                
+                add_crew(name,rank,division)
+            
+            elif dis == 3:
+                update_crew(name,rank,division)
+
+            elif dis == 4:
+                remove_crew(name,rank,division)
+            
+            elif dis == 5:
+                ...
 
             elif dis == 6:
                     print("Killing Program...")
@@ -27,9 +37,15 @@ def init_database():
     # ID's can just use the .index function
 
 def display_menu():
-    print("\n^ - Display Menu     -","\n1 - View Crew Files  -", "\n2 - Add Crew File    -", "\n3 - Update Crew File -", "\n4 - Remove Crew File -", "\n5 - Search Crew File -", "\n6 - Leave            -")
+    print("\n^ - Display Menu     -")
+    print("\n1 - View Crew Files  -")
+    print("\n2 - Add Crew File    -")
+    print("\n3 - Update Crew File -")
+    print("\n4 - Remove Crew File -")
+    print("\n5 - Search Crew File -")
+    print("\n6 - Leave            -")
 
-def add_member(name, rank, division):
+def add_crew(name, rank, division):
     i = str(input("\n* Enter New Crew Name: "))
     name.append(i)
     print("| Crew Name:", i, "\n|----------------")
@@ -45,13 +61,87 @@ def add_member(name, rank, division):
     print("|","New Crew Member Established!","\n|",i,"-",o,"-",u,"\n*----------------")
     return name, rank, division
 
-def remove_member(name, rank, division):
-    ...
+def remove_crew(name, rank, division):
+    Rask = input("\n* Index (I) or Names (N)? : ")
+    if Rask == "I" or Rask == "i":
+        print("| IDs from 1 to", len(name))
+        try:
+            IDRemove = int(input("| Which ID do you want to remove? : ")) -1
+            name.pop(int(IDRemove))
+            print("| Name has been removed...")
+            rank.pop(int(IDRemove))
+            print("| Rank has been removed...")
+            division.pop(int(IDRemove))
+            print("| Divison has been removed...")
+            print("*----------------", "\n| Crew file has been cleared.")
+        except ValueError:
+            print("| Invalid input...", "\n| Try again...")
 
-def update_rank(name, rank):
-    ...
+
+    if Rask == "N" or Rask == "n":
+        print("|", name)
+        try:
+            NameRemove = name.index(str(input("| Which Name do you want to remove? :")))
+            name.pop(int(NameRemove))
+            print("| Name has been removed...")
+            rank.pop(int(NameRemove))
+            print("| Rank has been removed...")
+            division.pop(int(NameRemove))
+            print("| Divison has been removed...")
+            print("*----------------", "\n| Crew file has been cleared.")
+        except ValueError:
+            print("| Invalid input...", "\n| Try again...")
+
+def update_crew(name, rank, division):
+    Uask = input("* Index (I) or Names (N)? : ")
+    if Uask == "I" or Uask == "i":
+        print("| 1 to", len(name))
+        IDUpdate = int(input("| Which crew do you want to Update? : ")) -1
+        print("*----------------")
+        askUpdate = str(input("| Update Name (N), Rank (R), or Division (D)? : ")).strip()
+        if askUpdate == "N" or askUpdate == "n":
+            print("| Current name is:", name[IDUpdate])
+            checkUpdate = input("| Is this the name you want to change (Y/N)? : ")
+        if checkUpdate == "Y" or checkUpdate == "y":
+            name.pop(IDUpdate)
+            print("| Name removed")
+            name.insert(IDUpdate, str(input("| Input new name: ")))
+            print("|", name[IDUpdate], rank[IDUpdate], division[IDUpdate], "\n*----------------")
+        elif checkUpdate == "N" or checkUpdate == "n":
+            print("*----------------")
+        else:
+            print("| Try Again...", "\n*----------------")
+
+    elif askUpdate == "R" or askUpdate == "r":
+        print("| Current rank is:", rank[IDUpdate])
+        checkUpdate = input("| Is this the rank you want to change (Y/N)? : ")
+        if checkUpdate == "Y" or checkUpdate == "y":
+            rank.pop(IDUpdate)
+            print("| Rank removed")
+            rank.insert(IDUpdate, str(input("| Input new rank: ")))
+            print("|", name[IDUpdate], rank[IDUpdate], division[IDUpdate], "\n*----------------")
+            
+        elif checkUpdate == "N" or checkUpdate == "n":
+            print("*----------------")
+            
+        else:
+            print("| Try Again...", "\n*----------------")
+
+    elif askUpdate == "D" or askUpdate == "d":
+        print("| Current division is:", division[IDUpdate])    
+        checkUpdate = input("| Is this the division you want to change (Y/N)? : ")
+        if checkUpdate == "Y" or checkUpdate == "y":
+            division.pop(IDUpdate)
+            print("| Divison removed")
+            division.insert(IDUpdate, str(input("| Input new division: ")))
+            print("|", name[IDUpdate], rank[IDUpdate], division[IDUpdate], "\n*----------------")
+            
+        elif checkUpdate == "N" or checkUpdate == "n":
+            print("*----------------")
+            
+        else:
+                print("| Try Again...", "\n*----------------")
     
-
 def display_roster(name, rank, division):
     print("*----------------")
     print("\n| Name", " - ", "Rank", " - ", "Division", " - ", "ID")
