@@ -16,6 +16,28 @@ def init_database():
 def display_menu():
     ...
 
+def add_member(names, rank, division):
+    ...
+
+def remove_member(names, ranks, divs, ids):
+    
+
+def update_rank(names, ranks, ids):
+    
+
+def display_roster(names, ranks, divs, ids):
+    
+
+def search_crew(names, ranks, divs, ids):
+    
+
+def filter_by_division(names, divs):
+    
+
+def calculate_payroll(ranks):
+    .
+
+def count_officers(ranks)
 
 def fleet_manager():
     while True:
