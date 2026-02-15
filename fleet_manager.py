@@ -9,7 +9,7 @@ def fleet_manager():
     while True:
 
         print("\n^ - Display Menu     -","\n1 - View Crew Files  -", "\n2 - Add Crew File    -", "\n3 - Update Crew File -", "\n4 - Remove Crew File -", "\n5 - Search Crew File -", "\n6 - Leave            -")
-        # Funny :)
+        # Funny
         try:
             dis = int(input("^ - Choose: "))
 
@@ -41,25 +41,66 @@ def fleet_manager():
             # Update Crew
             elif dis == 3:
                 Uask = input("* Index (I) or Names (N)? : ")
-                if Uask == "I":
+                if Uask == "I" or Uask == "i":
                     print("| 1 to", len(name))
                     IDUpdate = int(input("| Which ID do you want to Update? : ")) -1
                     print("*----------------")
-                    while True:
-                        try:
-                            askUpdate = str(input("| Update Name (N), Rank (R), or Division (D)? : "))
-                            if askUpdate == "N" or askUpdate == "n":
-                                print("| Current name is: ", name.index(IDUpdate))
-                                #aba
-                            elif askUpdate == "R" or askUpdate == "r":
-                                print("| Current name is: ", rank.index(IDUpdate))
-                            elif askUpdate == "D" or askUpdate == "d":
-                                print("| Current name is: ", division.index(IDUpdate))
-                            
-                        except ValueError:
-                            print("| Invalid input...", "\n| Try again...")
-                if Uask == "N":
+                    
+                    askUpdate = str(input("| Update Name (N), Rank (R), or Division (D)? : ")).strip()
+                    if askUpdate == "N" or askUpdate == "n":
+                        print("| Current name is:", name[IDUpdate])
+                        checkUpdate = input("| Is this the name you want to change (Y/N)? : ")
+                        if checkUpdate == "Y" or checkUpdate == "y":
+                            name.pop(IDUpdate)
+                            print("| Name removed")
+                            name.insert(IDUpdate, str(input("| Input new name: ")))
+                            print("|", name[IDUpdate], rank[IDUpdate], division[IDUpdate], "\n*----------------")
+                            continue
+                        elif checkUpdate == "N" or checkUpdate == "n":
+                            print("*----------------")
+                            continue
+                        else:
+                            print("| Try Again...", "\n*----------------")
+
+                    elif askUpdate == "R" or askUpdate == "r":
+                        print("| Current rank is:", rank[IDUpdate])
+                        checkUpdate = input("| Is this the rank you want to change (Y/N)? : ")
+                        if checkUpdate == "Y" or checkUpdate == "y":
+                            rank.pop(IDUpdate)
+                            print("| Rank removed")
+                            rank.insert(IDUpdate, str(input("| Input new rank: ")))
+                            print("|", name[IDUpdate], rank[IDUpdate], division[IDUpdate], "\n*----------------")
+                            continue
+                        elif checkUpdate == "N" or checkUpdate == "n":
+                            print("*----------------")
+                            continue
+                        else:
+                            print("| Try Again...", "\n*----------------")
+
+                    elif askUpdate == "D" or askUpdate == "d":
+                        print("| Current division is:", division[IDUpdate])    
+                        checkUpdate = input("| Is this the division you want to change (Y/N)? : ")
+                        if checkUpdate == "Y" or checkUpdate == "y":
+                            division.pop(IDUpdate)
+                            print("| Rank removed")
+                            division.insert(IDUpdate, str(input("| Input new division: ")))
+                            print("|", name[IDUpdate], rank[IDUpdate], division[IDUpdate], "\n*----------------")
+                            continue
+                        elif checkUpdate == "N" or checkUpdate == "n":
+                            print("*----------------")
+                            continue
+                        else:
+                                print("| Try Again...", "\n*----------------")
+                    else:
+                        print("| Invalid input...", "\n| Try again...")
+
+
+
+                if Uask == "N" or Uask == "n":
                     print("|", name)
+
+                else:
+                    print("| Try Again...", "\n*----------------")
 
             # Remove Crew
             elif dis == 4:
