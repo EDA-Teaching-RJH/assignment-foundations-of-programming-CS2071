@@ -28,24 +28,26 @@ def add_member(name, rank, division):
     ...
 
 def remove_member(name, rank, division, ids):
-    
+    ...
 
 def update_rank(name, rank, ids):
+    ...
     
 
 def display_roster(name, rank, division, ids):
-    
+    ...
 
 def search_crew(name, rank, division, ids):
-    
+    ...
 
 def filter_by_division(name, division):
-    
+    ...
 
 def calculate_payroll(rank):
-    .
+    ...
 
-def count_officers(rank)
+def count_officers(rank):
+    ...
 
 def fleet_manager():
     while True:
