@@ -7,7 +7,15 @@ payroll = ["1500","800","200","650","2500","650"]
 
 def main():
     print("- Made by Cameron Sands * CS2071@kent.ac.uk")
-    fleet_manager()
+    while True:
+        fleet_manager()
+
+def init_database():
+    print("a")
+
+def display_menu():
+    ...
+
 
 def fleet_manager():
     while True:
