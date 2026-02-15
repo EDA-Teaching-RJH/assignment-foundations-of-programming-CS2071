@@ -48,6 +48,11 @@ def fleet_manager():
                 IDRemove = input("Which ID do you want to remove? : ")
                 name.pop(IDRemove)
                 print("Name has been removed...")
+                rank.pop(IDRemove)
+                print("Rank has been removed...")
+                division.pop(IDRemove)
+                print("Divison has been removed...")
+                print("Crew file has been cleared.")
 
 
             if Rask == "N":
