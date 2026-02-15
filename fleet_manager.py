@@ -45,7 +45,10 @@ def fleet_manager():
             Rask = input("Index (I) or Names (N)? : ")
             if Rask == "I":
                 print("0 to", len(name),"\n")
-                #IDRemove
+                IDRemove = input("Which ID do you want to remove? : ")
+                name.pop(IDRemove)
+                print("Name has been removed...")
+
 
             if Rask == "N":
                 print(name)
