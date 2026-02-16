@@ -183,38 +183,51 @@ def update_crew(name, rank, division, UnID):
     else:
         print("| Invalid input...", "\n| Try again...")
     
-def display_roster(name, rank, division):
+def display_roster(name, rank, division,UnID):
     print("*----------------")
-    print("\n| Name", " - ", "Rank", " - ", "Division", " - ", "ID")
+    print("\n| Name", " - ", "Rank", " - ", "Division", " - ", "UID")
+    a=0
     for a in range(len(name)):
-        print("|", name[a], " - ", rank[a], " - ", division[a], " - ", a+1)
+        print("|", name[a], " - ", rank[a], " - ", division[a], " - ", UnID)
         a = a +1
     print("*----------------")
 
-def search_crew(name, rank, division):
-    Sask = input("\n* Index (I) or Names (N)? : ")
-    if Sask == "i" or Sask == "I":
-        print("| IDs from 1 to", len(name))
-        try:
-            IDSearch = int(input("| Which ID do you want to look for? : ")) -1
-            print("|", name[IDSearch], rank[IDSearch], division[IDSearch], IDSearch+1, "\n*----------------")
-        except ValueError:
-            print("| Invalid input...", "\n| Try again...")
-    if Sask == "N" or Sask == "n":
-        print("|", name)
-        try:
-            nameSearch = name.index(str(input("| What crew member do you want to look at? : ")).strip())
-            print("|", name[nameSearch], rank[nameSearch], division[nameSearch], nameSearch+1, "\n*----------------")
-        except ValueError:
-            print("| Invalid input...", "\n| Try again...")
+def search_crew(name, rank, division, UnID):
+    Sask = input("\n* Input search request")
+    a=0
+    if Sask == name:
+        for a in range(len(name)):
+            if Sask == name[a]:
+                print("|", name[a], rank[a], division[a], UnID[a])
+            a = a+1
+            print("*----------------")
 
-def filter_by_division(name, rank, division):
+    elif Sask == rank:
+        for a in range(len(rank)):
+            if Sask == rank[a]:
+                print("|", name[a], rank[a], division[a], UnID[a])
+            a = a+1
+            print("*----------------")
+    elif Sask == division:
+        for a in range(len(division)):
+            if Sask == division[a]:
+                print("|", name[a], rank[a], division[a], UnID[a])
+            a = a+1
+            print("*----------------")
+    elif Sask == UnID:
+        for a in range(len(UnID)):
+            if Sask == UnID[a]:
+                print("|", name[a], rank[a], division[a], UnID[a])
+            a = a+1
+            print("*----------------")
+
+def filter_by_division(name, rank, division,UnID):
     print("\n| Science, Command, Operations")
     Dfilter = str(input("* What division would you like to filter? :")).strip()
     a=0
     for a in range(len(division)):
             if division[a] == str(Dfilter):
-                print("|",name[a], rank[a], division[a])
+                print("|",name[a], rank[a], division[a], UnID[a])
                 a = a+1
     print("*----------------")
 
