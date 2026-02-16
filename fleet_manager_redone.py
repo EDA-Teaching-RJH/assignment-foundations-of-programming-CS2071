@@ -19,11 +19,23 @@ def main():
                 remove_crew(name,rank,division)
             
             elif dis == 5:
-                ...
-
+                search_crew(name,rank,division)
+            
             elif dis == 6:
+                filter_by_division(name,rank,division)
+
+            elif dis == 7:
+                calculate_payroll(rank)
+
+            elif dis == 8:
+                count_officers(rank)
+
+            elif dis == 9:
                     print("Killing Program...")
                     break
+            
+            elif dis > 9:
+                print("| Input outside of range...", "\n| Try again...")
         
         except ValueError:
             print("| Invalid input...", "\n| Use numbers...")
@@ -38,12 +50,15 @@ def init_database():
 
 def display_menu():
     print("\n^ - Display Menu     -")
-    print("\n1 - View Crew Files  -")
-    print("\n2 - Add Crew File    -")
-    print("\n3 - Update Crew File -")
-    print("\n4 - Remove Crew File -")
-    print("\n5 - Search Crew File -")
-    print("\n6 - Leave            -")
+    print("1 - View Crew Files  -")
+    print("2 - Add Crew File    -")
+    print("3 - Update Crew File -")
+    print("4 - Remove Crew File -")
+    print("5 - Search Crew File -")
+    print("6 - Filter Crew File -")
+    print("7 - Crew Payroll     -")
+    print("8 - Officer Count    -")
+    print("9 - Leave            -")
 
 def add_crew(name, rank, division):
     i = str(input("\n* Enter New Crew Name: "))
@@ -151,10 +166,31 @@ def display_roster(name, rank, division):
     print("*----------------")
 
 def search_crew(name, rank, division):
-    ...
+    Sask = input("\n* Index (I) or Names (N)? : ")
+    if Sask == "i" or Sask == "I":
+        print("| IDs from 1 to", len(name))
+        try:
+            IDSearch = int(input("| Which ID do you want to look for? : ")) -1
+            print("|", name[IDSearch], rank[IDSearch], division[IDSearch], IDSearch+1, "\n*----------------")
+        except ValueError:
+            print("| Invalid input...", "\n| Try again...")
+    if Sask == "N" or Sask == "n":
+        print("|", name)
+        try:
+            nameSearch = name.index(str(input("| What crew member do you want to look at? : ")).strip())
+            print("|", name[nameSearch], rank[nameSearch], division[nameSearch], nameSearch+1, "\n*----------------")
+        except ValueError:
+            print("| Invalid input...", "\n| Try again...")
 
-def filter_by_division(name, division):
-    ...
+def filter_by_division(name, rank, division):
+    print("\n| Science, Command, Operations")
+    Dfilter = str(input("* What division would you like to filter? :")).strip()
+    a=0
+    for a in range(len(division)):
+            if division[a] == str(Dfilter):
+                print("|",name[a], rank[a], division[a])
+                a = a+1
+    print("*----------------")
 
 def calculate_payroll(rank):
     payroll = ["1500","800","200","650","2500","650"]
