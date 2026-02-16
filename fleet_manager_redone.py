@@ -194,10 +194,20 @@ def filter_by_division(name, rank, division):
 
 def calculate_payroll(rank):
     payroll = ["1500","800","200","650","2500","650"]
-    ...
+    checkPay = str(input("\n* Total cost (T) or Rank Payroll (R)? : "))
+    payCount = 0
+    totalCost = 0
+    if checkPay == "t" or checkPay == "T":
+        for payCount in range(len(rank)):
+            totalCost = totalCost + int(payroll[payCount])
+        print("| Total crew pay", totalCost, "Credits")
+    if checkPay == "r" or checkPay == "R":
+        
+
 
 def count_officers(rank):
-    ...
+    print("\n* Officer Count")
+    print("|", rank.count("Commander") + rank.count("Captain"))
 
 def fleet_manager():
     while True:
