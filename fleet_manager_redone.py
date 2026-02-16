@@ -278,7 +278,6 @@ def calculate_payroll(rank):
     print("| Total crew cost:",b)
     print("*----------------")
 
-
 def count_officers(rank):
     print("\n* Officer Count")
     print("|", rank.count("Commander") + rank.count("Captain"))
