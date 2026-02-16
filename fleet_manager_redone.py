@@ -82,7 +82,7 @@ def add_crew(name, rank, division, UnID):
     print("| Division:", u, "\n|----------------")
 
     while True:
-        n = str(input("| Enter Unique ID"))
+        n = str(input("| Enter Unique ID: "))
         if n not in UnID:
             UnID.append(n)
             print("| Unique ID:", n, "\n|----------------")
@@ -94,9 +94,10 @@ def add_crew(name, rank, division, UnID):
     return name, rank, division, UnID
 
 def remove_crew(name, rank, division,UnID):
-        print("| IDs from 1 to", len(name))
+        print(UnID)
+        print(name)
         try:
-            IDRemove = int(input("| Which ID do you want to remove? : ")) -1
+            IDRemove = int(UnID.index(input("| Which Unique ID do you want to remove? : ")))
             name.pop(int(IDRemove))
             print("| Name has been removed...")
             rank.pop(int(IDRemove))
@@ -188,38 +189,46 @@ def display_roster(name, rank, division,UnID):
     print("\n| Name", " - ", "Rank", " - ", "Division", " - ", "UID")
     a=0
     for a in range(len(name)):
-        print("|", name[a], " - ", rank[a], " - ", division[a], " - ", UnID)
+        print("|", name[a], " - ", rank[a], " - ", division[a], " - ", UnID[a])
         a = a +1
     print("*----------------")
 
 def search_crew(name, rank, division, UnID):
-    Sask = input("\n* Input search request")
+    Sask = str(input("\n* Input search request: ")).strip()
     a=0
-    if Sask == name:
+    if Sask in name:
+        print("| Name found")
         for a in range(len(name)):
             if Sask == name[a]:
                 print("|", name[a], rank[a], division[a], UnID[a])
             a = a+1
-            print("*----------------")
+        print("*----------------")
 
-    elif Sask == rank:
+    elif Sask in rank:
+        print("| Rank found")
         for a in range(len(rank)):
             if Sask == rank[a]:
                 print("|", name[a], rank[a], division[a], UnID[a])
             a = a+1
-            print("*----------------")
-    elif Sask == division:
+        print("*----------------")
+
+    elif Sask in division:
+        print("| Division found")
         for a in range(len(division)):
             if Sask == division[a]:
                 print("|", name[a], rank[a], division[a], UnID[a])
             a = a+1
-            print("*----------------")
-    elif Sask == UnID:
+        print("*----------------")
+
+    elif Sask in UnID:
+        print("| Unique ID found")
         for a in range(len(UnID)):
             if Sask == UnID[a]:
                 print("|", name[a], rank[a], division[a], UnID[a])
             a = a+1
-            print("*----------------")
+        print("*----------------")
+    else:
+        print("| Nothing found")
 
 def filter_by_division(name, rank, division,UnID):
     print("\n| Science, Command, Operations")
@@ -232,25 +241,43 @@ def filter_by_division(name, rank, division,UnID):
     print("*----------------")
 
 def calculate_payroll(rank):
-    payroll = ["1500","800","200","650","2500","650"]
-    try:
-        checkPay = str(input("\n* Total cost (T) or Rank Payroll (R)? : "))
-        a = 0
-        b = 0
-        if checkPay == "t" or checkPay == "T":
-            for a in range(len(rank)):
-                b = b + int(payroll[a])
-            print("| Total crew pay", b, "Credits")
-        if checkPay == "r" or checkPay == "R":
-            print(rank)
-            rankPay = str(input("| For what rank?: ")).strip()
-            for a in range(len(rank)):
-                if rankPay == rank[a]:
-                    b = b + int(payroll[a])         
-            print("| Total rank pay:", b)
-            
-    except ValueError:
-        print("| Invalid input...", "\n| Try again...")
+    print("\n* Calculating total crew cost...")
+    a=0
+    b=0
+    for a in range(len(rank)):
+        match rank[a]:
+            case "Ensign":
+                b = b+200
+                a = a+1
+
+            case "Lieutenant Junior Grade":
+                b = b+500
+                a = a+1
+
+            case "Lieutenant":
+                b = b+650
+                a = a+1
+
+            case "Lieutenant Commander":
+                b = b+800
+                a = a+1
+
+            case "Commander":
+                b = b+1100
+                a = a+1
+
+            case "Captain":
+                b = b+1400
+                a = a+1
+
+            case "Admiral":
+                b = b+2000
+                a = a+1
+            case _:
+                a = a+1
+    print("| Total crew cost:",b)
+    print("*----------------")
+
 
 def count_officers(rank):
     print("\n* Officer Count")
