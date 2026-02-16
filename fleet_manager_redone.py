@@ -66,17 +66,29 @@ def add_crew(name, rank, division, UID):
     name.append(i)
     print("| Crew Name:", i, "\n|----------------")
 
-    o = str(input("| Enter Crew Rank: "))
-    rank.append(o)
-    print("| Rank:", o, "\n|----------------")
+    while True:
+        print("| Ensign, Lieutenant Junior Grade, Lieutenant, Lieutenant Commander, Commander, Captain, Admiral")
+        o = str(input("| Enter Crew Rank: "))
+        match o:
+            case "Ensign" | "Lieutenant Junior Grade" | "Lieutenant" | "Lieutenant Commander" | "Commander" | "Captain" | "Admiral" :
+                rank.append(o)
+                print("| Rank:", o, "\n|----------------")
+                break
+            case _:
+                print("| Incorrect rank...\n| Try again...")
 
     u = str(input("| Enter Crew Division: "))
     division.append(u)
     print("| Division:", u, "\n|----------------")
 
-    n = str(input("| Enter Unique ID"))
-    UID.append(n)
-    print("| Unique ID:", n, "\n|----------------")
+    while True:
+        n = str(input("| Enter Unique ID"))
+        if n not in UID:
+            UID.append(n)
+            print("| Unique ID:", n, "\n|----------------")
+            break
+        else:
+            print("| Unique ID not usable...\n| Try again...")
 
     print("|","New Crew Member Established!","\n|",i,"-",o,"-",u,"\n*----------------")
     return name, rank, division
