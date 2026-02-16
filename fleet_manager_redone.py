@@ -1,28 +1,28 @@
 def main():
     print("- Made by Cameron Sands * CS2071@kent.ac.uk")
-    name, rank, division = init_database()
+    name, rank, division, UID = init_database()
     while True:
         try:
             display_menu()
 
             dis = int(input("^ - Choose: "))
             if dis == 1:
-                display_roster(name,rank,division)
+                display_roster(name,rank,division,UID)
 
             elif dis == 2:
-                add_crew(name,rank,division)
+                add_crew(name,rank,division,UID)
             
             elif dis == 3:
-                update_crew(name,rank,division)
+                update_crew(name,rank,division,UID)
 
             elif dis == 4:
-                remove_crew(name,rank,division)
+                remove_crew(name,rank,division,UID)
             
             elif dis == 5:
-                search_crew(name,rank,division)
+                search_crew(name,rank,division,UID)
             
             elif dis == 6:
-                filter_by_division(name,rank,division)
+                filter_by_division(name,rank,division,UID)
 
             elif dis == 7:
                 calculate_payroll(rank)
@@ -42,10 +42,11 @@ def main():
 
 def init_database():
     # Database
-    name = ["Spock", "William", "Phlox", "Tom", "Kathryn", "Reginald"]
-    rank = ["Commander", "First Officer", "Civilian", "Lieutenant", "Admiral", "Lieutenant"]
-    division = ["Science", "Command", "Science", "Command", "Command", "Operations"]
-    return name, rank, division
+    name = ["William", "Data", "Ro", "Tom", "Alyssa", "Reginald"]
+    rank = ["Commander", "Lieutenant Commander", "Ensign", "Lieutenant", "Lieutenant Junior Grade", "Lieutenant"]
+    division = ["Command", "Operations", "Command", "Command", "Science", "Operations"]
+    UID = ["1","2","3","4","5","6"]
+    return name, rank, division, UID
     # ID's can just use the .index function
 
 def display_menu():
@@ -60,7 +61,7 @@ def display_menu():
     print("8 - Officer Count    -")
     print("9 - Leave            -")
 
-def add_crew(name, rank, division):
+def add_crew(name, rank, division, UID):
     i = str(input("\n* Enter New Crew Name: "))
     name.append(i)
     print("| Crew Name:", i, "\n|----------------")
@@ -73,10 +74,14 @@ def add_crew(name, rank, division):
     division.append(u)
     print("| Division:", u, "\n|----------------")
 
+    n = str(input("| Enter Unique ID"))
+    UID.append(n)
+    print("| Unique ID:", n, "\n|----------------")
+
     print("|","New Crew Member Established!","\n|",i,"-",o,"-",u,"\n*----------------")
     return name, rank, division
 
-def remove_crew(name, rank, division):
+def remove_crew(name, rank, division,UID):
     Rask = input("\n* Index (I) or Names (N)? : ")
     if Rask == "I" or Rask == "i":
         print("| IDs from 1 to", len(name))
@@ -88,6 +93,8 @@ def remove_crew(name, rank, division):
             print("| Rank has been removed...")
             division.pop(int(IDRemove))
             print("| Divison has been removed...")
+            UID.pop(int(IDRemove))
+            print("| Unique ID has been removed...")
             print("*----------------", "\n| Crew file has been cleared.")
         except ValueError:
             print("| Invalid input...", "\n| Try again...")
@@ -103,6 +110,8 @@ def remove_crew(name, rank, division):
             print("| Rank has been removed...")
             division.pop(int(NameRemove))
             print("| Divison has been removed...")
+            UID.pop(int(IDRemove))
+            print("| Unique ID has been removed...")
             print("*----------------", "\n| Crew file has been cleared.")
         except ValueError:
             print("| Invalid input...", "\n| Try again...")
